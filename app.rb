@@ -18,7 +18,7 @@ class Battle < Sinatra::Base
     $player_1 = Player.new(params[:player_1_name])
     # session[:player_2_name] = params[:player_2_name]
     $player_2 = Player.new(params[:player_2_name])
-    session[:p2_hp] = 100
+    session[:p2_hp] = Player::DEFAULT_HIT_POINTS
     redirect '/play'
   end
 
@@ -27,13 +27,15 @@ class Battle < Sinatra::Base
     @player_1_name = $player_1.name
     # @player_2_name = session[:player_2_name]
     @player_2_name = $player_2.name
-    @p2_hp = session[:p2_hp]
+    @p1_hp = $player_1.hit_points
+    @p2_hp = $player_2.hit_points
     erb :play
   end
 
   get '/attack' do
-    @player_1_name = $player_1.name
-    @player_2_name = $player_2.name
+    @player_1 = $player_1
+    @player_2 = $player_2
+    @player_1.attack(@player_2)
     erb :attack
   end
 

@@ -22,4 +22,10 @@ feature 'Attacking' do
     click_button 'Attack!'
     expect(page).to have_content 'TOASTER attacked WALL-E'
   end
+
+  scenario 'confirm player 2 attack' do
+    sign_in_and_play
+    click_button 'Attack!'
+    expect(page).to have_content 'WALL-E HP = 90'
+  end
 end
