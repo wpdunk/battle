@@ -1,7 +1,24 @@
-<%= @game.p1.name %> vs. <%= @game.p2.name %>
-<p><%= @game.p1.name %> HP = <%= @game.p1.hit_points %></p>
-<p><%= @game.p2.name %> HP = <%= @game.p2.hit_points %></p>
-<<p><%= @game.current_turn.name %>'s turn</p>
-<form action="/attack" method="get">
-  <input type="submit" value="Attack!">
-</form>
+<link rel="stylesheet" href="https://unpkg.com/picnic">
+<body style="margin: 20%;">
+  <h1><%= @game.p1.name %> vs. <%= @game.p2.name %></h1>
+
+  <table class="primary" style="border: 1px solid black;">
+    <tr>
+      <th><p>HP Status:</p></th>
+    </tr>
+    <tr>
+      <td><h2><%= @game.p1.name %> HP = <%= @game.p1.hit_points %></h2></td>
+    </tr>
+    <tr>
+      <td><h2><%= @game.p2.name %> HP = <%= @game.p2.hit_points %></h2></td>
+    </tr>
+  </table>
+
+
+
+  <h3><%= @game.current_turn.name %>'s turn</h3>
+
+  <form action="/attack" method="get">
+    <input type="submit" value="Attack!">
+  </form>
+</body>

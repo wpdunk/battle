@@ -1,13 +1,19 @@
-<%= @game.p1.name %> attacked <%= @game.p2.name %>
+<link rel="stylesheet" href="https://unpkg.com/picnic">
+<body style="margin: 20%;">
+  <h1><%= @game.p1.name %> attacked <%= @game.p2.name %></h1>
 
-<%= @game.p2.name %> HP = <%= @game.p2.hit_points %>
+  <table class="primary" style="border: 1px solid black;">
+    <tr>
+      <th><p>HP Status:</p></th>
+    </tr>
+    <tr>
+      <td><h2><%= @game.p1.name %> HP = <%= @game.p1.hit_points %></h2></td>
+    </tr>
+    <tr>
+      <td><h2><%= @game.p2.name %> HP = <%= @game.p2.hit_points %></h2></td>
+    </tr>
+  </table>
 
-<!-- <form action="/play" method="get">
-  <label for="OK">Next go?
-    <input type="submit" value="OK">
-  </label>
-
-</form> -->
-
-<p>Ready for the next round?</p>
-<a href="/play">OK</a>
+  <p>Ready for the next round?</p>
+  <a href="/play">OK</a>
+</body>
