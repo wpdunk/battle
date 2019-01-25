@@ -8,7 +8,7 @@ describe Game do
 
   describe '#player_1' do
     it 'retrieves the first player' do
-      expect(game.p1).to eq player_1
+      expect(subject.p1).to eq player_1
     end
   end
 

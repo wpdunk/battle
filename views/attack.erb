@@ -1,6 +1,13 @@
 <link rel="stylesheet" href="https://unpkg.com/picnic">
 <body style="margin: 20%;">
+
+  <% if @game.current_turn == @game.p1 %>
   <h1><%= @game.p1.name %> attacked <%= @game.p2.name %></h1>
+  <% else %>
+  <h1></h1><%= @game.p2.name %> attacked <%= @game.p1.name %></h1>
+  <% end %>
+
+
 
   <table class="primary" style="border: 1px solid black;">
     <tr>
@@ -15,5 +22,8 @@
   </table>
 
   <p>Ready for the next round?</p>
-  <a href="/play">OK</a>
+  <!-- <a href="/play">OK</a> -->
+  <form action="/switch-turns" method="post">
+    <input type="submit" value="OK">
+  </form>
 </body>
